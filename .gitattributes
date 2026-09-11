@@ -1,0 +1,2 @@
+# Preserve producer-owned artifacts while keeping reviews focused on sources.
+resources/** linguist-generated=true -whitespace

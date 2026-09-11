@@ -158,7 +158,8 @@ def refresh(workspace: Path) -> None:
         ).hexdigest()
         for path in sorted(resources.rglob("*"))
         if path.is_file()
-        and path.name not in {"manifest.json", "previews.json", "preview.png"}
+        and path.relative_to(resources).as_posix() not in {"manifest.json", "previews.json"}
+        and path.name != "preview.png"
     }
     (resources / "manifest.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

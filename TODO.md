@@ -41,10 +41,3 @@ Die aktuelle Homepage beschreibt sie wie vereinbart bereits im Präsens.
   HTML-Worksheets einbetten.
 - [ ] Offlineöffnung und gespeicherte Worksheet-Kopien mit dem gemeinsamen
   Browser-Icon prüfen; der Tabtitel bleibt der Dokumenttitel.
-
-## Veröffentlichung
-
-- [ ] Den ersten GitHub-Pages-Lauf bis zum Abschluss verfolgen und die
-  tatsächlich ausgelieferte Version prüfen.
-- [ ] Das veröffentlichte Projekt im übergeordneten Workspace-Verzeichnis
-  ergänzen.

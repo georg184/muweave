@@ -49,3 +49,12 @@ not yet been added to the PyHTML producer.
 The linked worksheets preserve the backend's own desktop document controls
 and layout. The homepage's responsive layout checks do not certify that
 separate worksheet interface or the generated developer portal.
+
+## Public delivery
+
+The independent repository is `georg184/muweave`. Its first GitHub Actions
+run, `34587618027`, completed successfully. Public HTML, CSS, JavaScript,
+branding, the developer portal and all three example editions were compared
+byte for byte with the local build. The public browser flow switched from
+German to French to English and opened the working interactive worksheet.
+The shared ggprojects index includes the new project.
