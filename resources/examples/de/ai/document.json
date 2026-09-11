@@ -1,0 +1,134 @@
+{
+  "content": [
+    {
+      "children": [
+        {
+          "text": "Ein Fahrzeug startet aus dem Stand und beschleunigt gleichmässig. Wie hängen Fahrzeit und zurückgelegter Weg zusammen?",
+          "type": "text"
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "attributes": {
+        "name": "Equation",
+        "numbering": "system"
+      },
+      "text": "s(t) = \\frac{1}{2} a t^2",
+      "type": "equation"
+    },
+    {
+      "children": [
+        {
+          "text": "Verändere die Beschleunigung am Schieberegler und beobachte den Graphen.",
+          "type": "text"
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "attributes": {
+        "id": "muweave-homepage:accelerated-motion",
+        "parameters": [
+          {
+            "continuous": false,
+            "default": "1.5",
+            "kind": "slider",
+            "label": "a",
+            "maximum": "3",
+            "minimum": "0.5",
+            "name": "a",
+            "step": "0.5",
+            "unit": "\\frac{\\text{m}}{\\text{s}^{2}}"
+          }
+        ],
+        "static_fallback": "control defaults"
+      },
+      "children": [
+        {
+          "attributes": {
+            "axes": "both",
+            "grid": true,
+            "numbers": true,
+            "summary": "Coordinate system with x from 0 to 6 and y from 0 to 60",
+            "ticks": true,
+            "x_grid_step": "1",
+            "x_label": "t",
+            "x_range": [
+              "0",
+              "6"
+            ],
+            "x_step": "1",
+            "x_unit": "\\text{s}",
+            "y_grid_step": "10",
+            "y_label": "s",
+            "y_range": [
+              "0",
+              "60"
+            ],
+            "y_step": "10",
+            "y_unit": "\\text{m}"
+          },
+          "children": [
+            {
+              "attributes": {
+                "colors": {
+                  "stroke": {
+                    "name": "teal",
+                    "srgb": "#008080"
+                  }
+                },
+                "domain": [
+                  "0",
+                  "6"
+                ],
+                "expression": "a*t**2/2",
+                "variable": "t"
+              },
+              "type": "graphic_function_plot"
+            }
+          ],
+          "type": "coordinate_system"
+        }
+      ],
+      "type": "interactive_graphic"
+    },
+    {
+      "children": [
+        {
+          "text": "1. Lies den Weg nach 2 Sekunden und nach 4 Sekunden ab. Welchen Faktor erhältst du, wenn du die Zeit verdoppelst?",
+          "type": "text"
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "children": [
+        {
+          "text": "2. Verdopple die Beschleunigung von 1.5 auf 3 Meter pro Sekunde zum Quadrat. Wie verändert sich der Weg bei gleicher Fahrzeit?",
+          "type": "text"
+        }
+      ],
+      "type": "paragraph"
+    },
+    {
+      "children": [
+        {
+          "text": "In der Druckfassung gilt die vorgegebene Beschleunigung von 1.5 Metern pro Sekunde zum Quadrat. Berechne die Werte für andere Beschleunigungen mit der Formel.",
+          "type": "text"
+        },
+        {
+          "text": "\n",
+          "type": "text"
+        }
+      ],
+      "type": "paragraph"
+    }
+  ],
+  "format": "muweave-ai-document",
+  "format_version": 29,
+  "metadata": {
+    "language": "de-CH",
+    "title": "Beschleunigte Bewegung"
+  }
+}

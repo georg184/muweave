@@ -1,0 +1,27 @@
+{
+  "assets": [],
+  "entrypoints": {
+    "provenance": "provenance.json",
+    "reading": "document.md",
+    "structure": "document.json"
+  },
+  "files": {
+    "document.json": {
+      "media_type": "application/json",
+      "sha256": "6ee559c6fc5063fc7fcc3e01e217caa6342fb8bbf3c35eb9c6e48b79bcca9cf3",
+      "size": 3409
+    },
+    "document.md": {
+      "media_type": "text/markdown",
+      "sha256": "5b0b416eb2623facb385ec7375b8ff046481bffd9b72ad830b27b470615c45e6",
+      "size": 2600
+    },
+    "provenance.json": {
+      "media_type": "application/json",
+      "sha256": "6d6382ff5889d597205c3d57523ab92dbd77b5c680592c63c235182fac31b270",
+      "size": 2288
+    }
+  },
+  "format": "muweave-ai-bundle",
+  "format_version": 32
+}

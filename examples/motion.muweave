@@ -1,0 +1,61 @@
+µexec('''
+from muweave import SemanticValue
+
+# One source; the language is the only edition-specific setting.
+copy = {
+    "de": {
+        "intro": "Ein Fahrzeug startet aus dem Stand und beschleunigt gleichmässig. Wie hängen Fahrzeit und zurückgelegter Weg zusammen?",
+        "explore": "Verändere die Beschleunigung am Schieberegler und beobachte den Graphen.",
+        "task1": "1. Lies den Weg nach 2 Sekunden und nach 4 Sekunden ab. Welchen Faktor erhältst du, wenn du die Zeit verdoppelst?",
+        "task2": "2. Verdopple die Beschleunigung von 1.5 auf 3 Meter pro Sekunde zum Quadrat. Wie verändert sich der Weg bei gleicher Fahrzeit?",
+        "print": "In der Druckfassung gilt die vorgegebene Beschleunigung von 1.5 Metern pro Sekunde zum Quadrat. Berechne die Werte für andere Beschleunigungen mit der Formel.",
+    },
+    "en": {
+        "intro": "A vehicle starts from rest and accelerates uniformly. How are travel time and distance related?",
+        "explore": "Change the acceleration with the slider and observe the graph.",
+        "task1": "1. Read the distance after 2 seconds and after 4 seconds. What factor do you get when you double the time?",
+        "task2": "2. Double the acceleration from 1.5 to 3 metres per second squared. How does the distance change for the same travel time?",
+        "print": "The print version uses the initial acceleration of 1.5 metres per second squared. Use the formula to calculate values for other accelerations.",
+    },
+    "fr": {
+        "intro": "Un véhicule démarre à l’arrêt et accélère uniformément. Quelle est la relation entre la durée du trajet et la distance parcourue ?",
+        "explore": "Modifie l’accélération avec le curseur et observe le graphique.",
+        "task1": "1. Lis la distance après 2 secondes et après 4 secondes. Quel facteur obtiens-tu en doublant le temps ?",
+        "task2": "2. Double l’accélération de 1.5 à 3 mètres par seconde au carré. Comment la distance change-t-elle pour une même durée ?",
+        "print": "La version imprimée utilise l’accélération initiale de 1.5 mètre par seconde au carré. Calcule les valeurs pour d’autres accélérations à l’aide de la formule.",
+    },
+}[config.get("example.language", "de")]
+
+@g.interactive(
+    id="muweave-homepage:accelerated-motion",
+    a=ui.slider(min=0.5, max=3, step=0.5, default=1.5, label="a", unit=unit("m/s^2")),
+)
+def accelerated_motion(a: Term) -> SemanticValue:
+    """Describe the distance travelled from rest at constant acceleration.
+
+    Args:
+        a: Symbolic acceleration controlled by the worksheet slider.
+    """
+    return g.axis(
+        0, 6, 0, 60,
+        x=("t", unit("s")), y=("s", unit("m")),
+        xstep=1, ystep=10, grid=True,
+        width="12cm", height="6cm",
+    ).add(
+        g.plot(a * Term("t") ** 2 / 2, variable="t", xmin=0, xmax=6, color="teal"),
+    )
+''')
+
+µcopy["intro"]
+
+µblock.equation{s(t) = µfrac{1,,2} a t^2}
+
+µcopy["explore"]
+
+µaccelerated_motion
+
+µcopy["task1"]
+
+µcopy["task2"]
+
+µcopy["print"]
