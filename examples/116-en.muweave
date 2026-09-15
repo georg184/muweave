@@ -1,0 +1,117 @@
+µexec('''
+@g.interactive(
+    id="kinematics:velocity-area-position",
+    velocity=ui.select(
+        {
+            "Constant positive": Term("2"),
+            "Constant negative": Term("-2"),
+            "Piecewise constant": Term(
+                "Piecewise((2, tau < 2), (4, tau < 5), (-1, tau < 7), (1, True))"
+            ),
+            "General: linear": Term("3 - 3*tau/4"),
+            "General: wave-shaped": Term("3*cos(3*tau/4)"),
+            "General: alternating": Term("1 + 2*sin(5*tau/4)"),
+        },
+        default="Piecewise constant",
+        label="Velocity function",
+    ),
+    t_A=ui.slider(
+        min=0, max=9, step=None, default=1,
+        label="t_A", unit=unit("s"), significant_digits=4,
+    ),
+    delta_t=ui.slider(
+        min=0, max=Term("9-t_A"), step=None, default=3,
+        label=ui.label("t", "Δ t", when=("t_A", "==", 0)),
+        unit=unit("s"), significant_digits=4,
+    ),
+)
+def velocity_area_position(velocity: Term, t_A: Term, delta_t: Term) -> SemanticValue:
+    """Connect signed velocity area with position for a zero initial position.
+
+    Args:
+        velocity: Selected velocity expression with local time variable tau.
+        t_A: Lower integration bound, independent of the position origin at zero.
+        delta_t: Nonnegative duration, bounded by the remaining diagram range.
+    """
+
+    primitive = velocity.integrate("tau")
+    position = primitive - primitive.subs(tau=0)
+    t_E = t_A + delta_t
+    x_A = position.subs(tau=t_A)
+    x_E = position.subs(tau=t_E)
+    delta_x = x_E - x_A
+    v_E = velocity.subs(tau=t_E)
+    shared_axes = g.axis_layout(
+        x_unit_length="1cm", anchor_x=0, anchor_at_x="1.2cm",
+    )
+    velocity_diagram = g.axis(
+        0, 9, -4, 5, x=("t", unit("s")), y=(v.v, unit("m/s")),
+        xstep=1, ystep=1, grid=True, height="4cm", layout=shared_axes,
+    ).add(
+        g.area(
+            velocity, variable="tau", xmin=t_A, xmax=t_E, samples=400,
+            positive_fill="lightblue", negative_fill="lightsalmon",
+            fill_opacity=0.6, breakpoints=(2, 5, 7),
+        ),
+        g.plot(
+            velocity, variable="tau", xmin=0, xmax=9, samples=400,
+            color="forestgreen", stroke_width=2, breakpoints=(2, 5, 7),
+        ),
+        g.line((t_A, -4), (t_A, 5), color="darkgray", stroke_width=0.7),
+        g.line((t_E, -4), (t_E, 5), color="dimgray", stroke_width=0.7),
+        g.point((t_A, 0), color="dimgray", radius=2.5),
+        g.point((t_E, v_E), color="forestgreen", radius=3.5),
+        g.point((t_E, 0), color="dimgray", radius=2.5),
+        g.arrow((t_A, -3.3), (t_E, -3.3), color="dimgray",
+                name="Δ t", label_min_length="auto", when=(t_A, "!=", 0)),
+        g.arrow((t_A, -3.3), (t_E, -3.3), color="dimgray",
+                name="t", label_min_length="auto", when=(t_A, "==", 0)),
+    )
+    position_diagram = g.axis(
+        0, 9, -20, 20, x=("t", unit("s")), y=(v.x, unit("m")),
+        xstep=1, ystep=5, grid=True,
+        height="4.8cm", layout=shared_axes,
+    ).add(
+        g.plot(
+            position, variable="tau", xmin=0, xmax=9, samples=400,
+            color="royalblue", stroke_width=2, breakpoints=(2, 5, 7),
+        ),
+        g.line((t_A, -20), (t_A, 20), color="darkgray", stroke_width=0.7),
+        g.line((t_E, -20), (t_E, 20), color="dimgray", stroke_width=0.7),
+        g.line((t_A, x_A), (t_E, x_A), color="darkgray", stroke_width=0.7),
+        g.arrow((t_E, x_A), (t_E, x_E), color="royalblue", stroke_width=1.7,
+                when=(delta_x, "!=", 0)),
+    )
+    return layout.rows(
+        layout.columns(
+            velocity_diagram,
+            layout.rows(
+                "µbold{Sign of the area}",
+                "Areas above the time axis are counted as positive "
+                "(light blue).",
+                "Areas below the time axis are counted as negative "
+                "(salmon).",
+                gap=0.4,
+            ),
+            widths=(3, 1), valign="center", gap=0.02,
+        ),
+        layout.columns(
+            position_diagram,
+            layout.rows(
+                color(ui.output(
+                    delta_x,
+                    label=ui.label("µv.x (t)", "Δ µv.x", when=(t_A, "==", 0)),
+                    unit=unit("m"),
+                    significant_digits=4,
+                ), "royalblue"),
+                "The displacement equals the sum of the signed "
+                "areas in the upper graph.",
+                gap=0.5,
+            ),
+            widths=(3, 1), valign="center", gap=0.02,
+        ),
+        gap=0.8,
+    )
+''')
+
+µvelocity_area_position

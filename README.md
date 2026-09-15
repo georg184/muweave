@@ -1,13 +1,32 @@
-# MuWeave homepage
+# µWeave homepage
 
-Die öffentliche Webseite erklärt MuWeave für Lehrpersonen: eine Python-basierte
-Dokumentensprache für Worksheets und Prüfungen, mit einer gemeinsamen Quelle
+Die öffentliche Webseite erklärt µWeave für Lehrpersonen: eine Python-basierte
+Dokumentenbeschreibungssprache für Worksheets, mit einer gemeinsamen Quelle
 für PDF, interaktives HTML und fachlichen KI-Kontext.
 
 Die Hauptseite ist auf Deutsch, Englisch und Französisch verfügbar. Sie führt
 vom unmittelbaren Einstieg über Python, Lerncoach und vorlesbare Mathematik zu
-einem echten Unterrichtsbeispiel. Technische Dokumentation ist über einen
-Nebenlink im Fussbereich erreichbar.
+einem echten Unterrichtsbeispiel. Der verlinkte Begriff
+«Dokumentenbeschreibungssprache» führt zu einer allgemein verständlichen
+Erklärseite mit Markdown- und LaTeX-Beispielen sowie einem kleinen
+µWeave-Beispiel. Die Homepage verwendet eine neutrale Ansprache.
+Technische Dokumentation ist
+über einen Nebenlink im Fussbereich erreichbar.
+
+Im Abschnitt «Mathematik auch hören» startet «Formel vorlesen» die Sprachausgabe;
+derselbe Knopf stoppt sie wieder. Die gewählte Seitensprache bestimmt den
+automatisch aus der Formel erzeugten Sprechtext und die verwendete
+Browserstimme. Fehlt eine passende Stimme oder schlägt sie fehl, übernimmt ein
+mitgeliefertes Hörbeispiel aus demselben Sprechtext. Ohne JavaScript bleiben
+Sprechtext und native MathML-Formel lesbar.
+
+Der Einstieg kennzeichnet die gesamte µWeave-Suite und ihre eigenen
+Bibliotheksabhängigkeiten sichtbar als Open Source unter GPLv3
+(`GPL-3.0-only`). Der verlinkte Lizenzabschnitt erläutert die Rechte an der
+Software, die eigenständige Lizenzierung von Worksheet-Inhalten und die
+unveränderten Drittanbieter-Lizenzen. Der vollständige GPL-Text ist lokal
+verfügbar. Name und Logo werden mit dem Rechtevorbehalt von Georg G ausgewiesen;
+die Logo-Grafik gehört nicht zur GPL-Freigabe der Software.
 
 - Website: <https://georg184.github.io/muweave/>
 - Eigenständiges Repository: <https://github.com/georg184/muweave>
@@ -15,16 +34,23 @@ Nebenlink im Fussbereich erreichbar.
 
 ## Beispiel und Produktstand
 
-`examples/motion.muweave` erzeugt in drei Sprachen ein Worksheet zur
-beschleunigten Bewegung. Die veröffentlichten HTML-, PDF- und KI-Ausgaben
-stammen aus dieser Quelle. Im HTML verändert ein echter MuWeave-Schieberegler
-die Kurve; das PDF zeigt den Ausgangswert. Die HTML-Ausgaben enthalten natives
-MathML und den zum Dokument passenden semantischen KI-Kontext.
+Das Unterrichtsbeispiel zeigt das Applet aus Item 116: Geschwindigkeit,
+vorzeichenbehaftete Fläche und Ortsänderung. Auswahl und Regler sind direkt
+auf der Homepage bedienbar. Darunter steht der vollständige passende Quelltext
+mit Download. Die einleitenden und nachfolgenden Texte des Items sind weggelassen.
 
-Die Seitentexte beschreiben auf Wunsch des Auftraggebers das Produktziel im
-Präsens. Die Laufzeitintegration des KI-Lerncoachs und seiner Autorenanweisungen
-steht noch aus. Das Gespräch auf der Homepage ist eine beschriftete
-Illustration. Eine Prüfung mit realen Screenreadern und die Übernahme des
+`examples/116.muweave` ist eine feste Kopie des deutschen Applet-Quelltexts;
+`116-en.muweave` und `116-fr.muweave` enthalten seine übersetzten Beschriftungen.
+Die Homepage verwendet daraus erzeugte lokale HTML-Kopien. Änderungen am
+kanonischen Item 116 verändern diese Quellen und die Homepage nicht automatisch.
+
+Der Lerncoach-Abschnitt zeigt unter dem Erklärungstext einen unveränderten
+Screenshot aus einem deutschsprachigen HTML-Worksheet zur Geschwindigkeit.
+`assets/images/Lerncoach_Beispiel.png` nimmt die volle Inhaltsbreite ein und
+lässt sich per Klick in Originalgrösse öffnen. Alle Sprachfassungen verwenden
+dasselbe Bild mit übersetzter Beschreibung und Bildunterschrift.
+
+Eine Prüfung mit realen Screenreadern und die Übernahme des
 Logos in sämtliche PyHTML-Worksheets bleiben ebenfalls offen.
 
 Die Homepage benötigt zur Laufzeit weder einen Serverdienst noch externe

@@ -1,0 +1,14 @@
+{
+  "name": "muweave-homepage-tools",
+  "private": true,
+  "scripts": {
+    "refresh:math-speech": "node scripts/refresh_math_speech.cjs",
+    "check:math-speech": "node scripts/refresh_math_speech.cjs --check"
+  },
+  "devDependencies": {
+    "speech-rule-engine": "4.1.4"
+  },
+  "overrides": {
+    "@xmldom/xmldom": "0.9.12"
+  }
+}

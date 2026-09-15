@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "generator": {
+    "name": "speech-rule-engine",
+    "version": "4.1.4",
+    "domain": "clearspeak",
+    "style": "ImpliedTimes_MoreImpliedTimes",
+    "markup": "none"
+  },
+  "inputs": {
+    "scripts/refresh_math_speech.cjs": "7cf194b9b701a488ec326a419ac43e4fe6f40125b5d40c0136bbf82d9ab81f08",
+    "package.json": "e736e3df3359ba4b259da77e0ca04ba64b4d5d79838f9b9a5ec25a27a8c598f4",
+    "package-lock.json": "5a5450fcf4ac0c89aaee12e0c6dbd58463a646b9d6f6229a9b03db4f2d69613b"
+  },
+  "mathml_sha256": "ca38f21c2c523d7f858d34fd13bdbe40fe51fa4bf3e2396d1c555e4b56213b72",
+  "editions": {
+    "de": "s von t ist gleich ein halb mal a mal t Quadrat",
+    "en": "s of t equals one half times a times t squared",
+    "fr": "s de t égale un-demi multiplié par a multiplié par t au carré"
+  },
+  "audio_generator": {
+    "name": "espeak-ng",
+    "version": "1.52.0",
+    "words_per_minute": 145
+  },
+  "recordings": {
+    "de": {
+      "path": "assets/audio/math-de.wav",
+      "sha256": "19555aa23716513ed0b56b9a720e0cdcf381a5fcdfcdf4b850e782c5ebebaf82"
+    },
+    "en": {
+      "path": "assets/audio/math-en.wav",
+      "sha256": "cce942697fdb8ca262756644e52a505bf090c6120b5a5509f93b0f9f56f7a177"
+    },
+    "fr": {
+      "path": "assets/audio/math-fr.wav",
+      "sha256": "d2c8a64195c1cd4ee4b2f6646534520e51ede4d24a54cf86d2cf417fc77b733f"
+    }
+  }
+}

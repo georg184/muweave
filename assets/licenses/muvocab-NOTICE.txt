@@ -1,0 +1,37 @@
+muvocab
+Copyright (C) 2026 Georg G
+SPDX-License-Identifier: GPL-3.0-only
+
+This package is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation, version 3 of the License only.
+
+This package is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this package in LICENSE. If not, see
+<https://www.gnu.org/licenses/>.
+
+Unless an accompanying notice specifies otherwise, this grant covers the
+original source code, documentation, tests, examples and other original
+resources in this package. Third-party code, fonts and other third-party
+resources retain their own copyright holders, licenses and notices;
+this notice does not replace or relicense them.
+
+MuWeave name and logo
+--------------------
+The name µWeave and the woven µ logo identify Georg G's project.
+The logo artwork in src/muvocab/_brand/ (SVG and PDF) is
+Copyright (C) 2026 Georg G and is excluded from the GPL grant above.
+Rights in the name and logo are reserved; no trademark rights are granted
+by the software license, and no trademark registration is claimed here.
+
+The unchanged logo may be copied and displayed to identify or refer to
+µWeave, including redistribution with the software and use of the µweave
+document command. This permission does not allow presenting a different
+product as the original µWeave project or implying Georg G's endorsement.
+Other uses of the artwork require Georg G's permission unless permitted by law.
+These terms do not restrict the GPL rights in the software itself.

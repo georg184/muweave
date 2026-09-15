@@ -1,0 +1,36 @@
+{
+  "schema_version": 4,
+  "muweave_version": "20260912.162730",
+  "library_source": "\"\"\"Illustrative formatting library; the exporter selects its backend.\"\"\"\n\nbackend: str = \"html\"\n\n\ndef expr(value: object) -> object:\n    \"\"\"Return an already evaluated Python value unchanged.\n\n    Args:\n        value: Result of the Python expression passed to this identity function.\n    \"\"\"\n    return value\n\n\ndef bold(text: str) -> str:\n    \"\"\"Return bold markup for the selected output format.\n\n    Args:\n        text: Plain example text without markup delimiters.\n    \"\"\"\n    if backend == \"latex\":\n        return r\"\\textbf{\" + text + \"}\"\n    elif backend == \"html\":\n        return f\"<strong>{text}</strong>\"\n    elif backend == \"markdown\":\n        return f\"**{text}**\"\n    raise ValueError(f\"Unsupported backend: {backend}\")\n",
+  "library_excerpt": "def expr(value: object) -> object:\n    return value\n\ndef bold(text: str) -> str:\n    if backend == \"latex\":\n        return r\"\\textbf{\" + text + \"}\"\n    elif backend == \"html\":\n        return f\"<strong>{text}</strong>\"\n    elif backend == \"markdown\":\n        return f\"**{text}**\"\n    raise ValueError(f\"Unsupported backend: {backend}\")",
+  "library_sha256": "c3ca2a8c8da3a959d1c7e36766d5945275a5f0f2c6396dc86d287dadb2d409b4",
+  "document_setup": "µexec(\"\"\"\na = 6\nb = 4\nvalues = [3, 5, 4]\nresult = a * b + sum(values)\n\"\"\")",
+  "document_sha256": "5ec036d06059275313da60c14f99d6a09c09632194f909073c82ea7be915c09b",
+  "strip_outer_whitespace": true,
+  "editions": {
+    "de": {
+      "source": "µexec(\"\"\"\na = 6\nb = 4\nvalues = [3, 5, 4]\nresult = a * b + sum(values)\n\"\"\")\n\nDie Werte sind a = µa und b = µb.\nIhr Produkt ist µexpr(a * b).\nDie Liste µstr(values) hat die Summe µsum(values).\nDas Gesamtergebnis aus Produkt und Summe ist µbold(str(result)).",
+      "outputs": {
+        "latex": "Die Werte sind a = 6 und b = 4.\nIhr Produkt ist 24.\nDie Liste [3, 5, 4] hat die Summe 12.\nDas Gesamtergebnis aus Produkt und Summe ist \\textbf{36}.",
+        "html": "Die Werte sind a = 6 und b = 4.\nIhr Produkt ist 24.\nDie Liste [3, 5, 4] hat die Summe 12.\nDas Gesamtergebnis aus Produkt und Summe ist <strong>36</strong>.",
+        "markdown": "Die Werte sind a = 6 und b = 4.\nIhr Produkt ist 24.\nDie Liste [3, 5, 4] hat die Summe 12.\nDas Gesamtergebnis aus Produkt und Summe ist **36**."
+      }
+    },
+    "en": {
+      "source": "µexec(\"\"\"\na = 6\nb = 4\nvalues = [3, 5, 4]\nresult = a * b + sum(values)\n\"\"\")\n\nThe values are a = µa and b = µb.\nTheir product is µexpr(a * b).\nThe list µstr(values) has the sum µsum(values).\nThe combined result of the product and the sum is µbold(str(result)).",
+      "outputs": {
+        "latex": "The values are a = 6 and b = 4.\nTheir product is 24.\nThe list [3, 5, 4] has the sum 12.\nThe combined result of the product and the sum is \\textbf{36}.",
+        "html": "The values are a = 6 and b = 4.\nTheir product is 24.\nThe list [3, 5, 4] has the sum 12.\nThe combined result of the product and the sum is <strong>36</strong>.",
+        "markdown": "The values are a = 6 and b = 4.\nTheir product is 24.\nThe list [3, 5, 4] has the sum 12.\nThe combined result of the product and the sum is **36**."
+      }
+    },
+    "fr": {
+      "source": "µexec(\"\"\"\na = 6\nb = 4\nvalues = [3, 5, 4]\nresult = a * b + sum(values)\n\"\"\")\n\nLes valeurs sont a = µa et b = µb.\nLeur produit est µexpr(a * b).\nLa liste µstr(values) a pour somme µsum(values).\nLe résultat combinant le produit et la somme est µbold(str(result)).",
+      "outputs": {
+        "latex": "Les valeurs sont a = 6 et b = 4.\nLeur produit est 24.\nLa liste [3, 5, 4] a pour somme 12.\nLe résultat combinant le produit et la somme est \\textbf{36}.",
+        "html": "Les valeurs sont a = 6 et b = 4.\nLeur produit est 24.\nLa liste [3, 5, 4] a pour somme 12.\nLe résultat combinant le produit et la somme est <strong>36</strong>.",
+        "markdown": "Les valeurs sont a = 6 et b = 4.\nLeur produit est 24.\nLa liste [3, 5, 4] a pour somme 12.\nLe résultat combinant le produit et la somme est **36**."
+      }
+    }
+  }
+}

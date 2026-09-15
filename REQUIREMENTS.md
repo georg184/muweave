@@ -1,4 +1,4 @@
-# MuWeave homepage requirements
+# µWeave homepage requirements
 
 These selected conditions add homepage-specific constraints to the parent
 workspace's `REQUIREMENTS.md`. The content and design proposal is in
@@ -6,8 +6,8 @@ workspace's `REQUIREMENTS.md`. The content and design proposal is in
 
 ## MWH-ENTRY-01 — Immediate explanation
 
-The homepage's main content begins with the title `MuWeave`, its educational
-purpose statement, and an explanation identifying MuWeave as a Python-based
+The homepage's main content begins with the title `µWeave (MuWeave)`, its educational
+purpose statement, and an explanation identifying µWeave as a Python-based
 document language. That explanation connects one source to PDF, interactive
 HTML, and structured AI-readable content before examples or entry actions,
 and introduces the integrated worksheet learning coach as a core capability.
@@ -20,7 +20,7 @@ tab, accordion, dialog, or another page.
 
 ## MWH-AUDIENCE-01 — Teacher-facing primary content
 
-The homepage explains the educational use of MuWeave in ordinary language.
+The homepage explains the educational use of µWeave in ordinary language.
 Developer documentation is accessible through a secondary link labelled for
 that audience. API inventories, package architecture, and developer setup
 instructions are absent from the main introduction. Explanatory Python source
@@ -42,7 +42,9 @@ applies to all visible content and accessibility text.
 - Evidence: translation sources, fallback HTML, control markup, and switching
   tests including reload and history navigation.
 - Criterion: all three editions provide equivalent content and a consistent
-  selected language; a storage failure does not prevent reading or switching.
+  selected language. Flag activation preserves the viewport instead of jumping
+  to a previously visited section; a storage failure does not prevent reading
+  or switching.
 
 ## MWH-CLAIMS-01 — Traceable product statements
 
@@ -89,7 +91,7 @@ every output or claim that MathJax and KaTeX cannot support accessibility.
 
 ## MWH-EXAMPLE-01 — Authentic source and outputs
 
-Every example presented as demonstrating multiple MuWeave outputs derives
+Every example presented as demonstrating multiple µWeave outputs derives
 those outputs from the same identified source and documented build settings.
 The website retains or references the actual generated artifacts instead of
 recreating their behavior as a separate demonstration implementation.

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="{{locale}}" data-language="{{language}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{language_page_title}}</title>
+  <meta name="description" content="{{language_description}}">
+  <meta name="theme-color" content="#EDF4EE">
+  <meta property="og:title" content="{{language_page_title}}">
+  <meta property="og:description" content="{{language_description}}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="{{og_locale}}">
+  <meta property="og:url" content="{{canonical}}">
+  <link rel="canonical" href="{{canonical}}">
+  <link rel="alternate" hreflang="de" href="{{alternate_de}}">
+  <link rel="alternate" hreflang="en" href="{{alternate_en}}">
+  <link rel="alternate" hreflang="fr" href="{{alternate_fr}}">
+  <link rel="alternate" hreflang="x-default" href="{{alternate_de}}">
+  <link rel="icon" type="image/svg+xml" href="{{root}}assets/brand/muweave-symbol.svg?v={{version}}">
+  <link rel="icon" sizes="32x32" type="image/png" href="{{root}}assets/brand/favicon-32.png?v={{version}}">
+  <link rel="apple-touch-icon" href="{{root}}assets/brand/apple-touch-icon.png?v={{version}}">
+  <script>window.GG_APP_VERSION = '{{version}}';</script>
+  <link rel="stylesheet" href="{{root}}assets/css/site.css?v={{version}}">
+  <script src="{{root}}assets/js/site.js?v={{version}}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">{{skip}}</a>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="brand brand-home" href="{{home}}"><span class="brand-name">µWeave</span></a>
+      <div class="language-switcher js-only" role="group" aria-label="{{languages}}">
+        <button type="button" data-language="de" data-href="{{href_de}}" lang="de" aria-label="Deutsch" title="Deutsch" aria-pressed="{{active_de}}"><span aria-hidden="true">🇩🇪</span></button>
+        <button type="button" data-language="en" data-href="{{href_en}}" lang="en" aria-label="English" title="English" aria-pressed="{{active_en}}"><span aria-hidden="true">🇬🇧</span></button>
+        <button type="button" data-language="fr" data-href="{{href_fr}}" lang="fr" aria-label="Français" title="Français" aria-pressed="{{active_fr}}"><span aria-hidden="true">🇫🇷</span></button>
+      </div>
+      <nav class="language-switcher no-js" aria-label="{{languages}}"><a href="{{href_de}}" lang="de" aria-label="Deutsch" title="Deutsch" aria-current="{{active_de}}"><span aria-hidden="true">🇩🇪</span></a><a href="{{href_en}}" lang="en" aria-label="English" title="English" aria-current="{{active_en}}"><span aria-hidden="true">🇬🇧</span></a><a href="{{href_fr}}" lang="fr" aria-label="Français" title="Français" aria-current="{{active_fr}}"><span aria-hidden="true">🇫🇷</span></a></nav>
+    </header>
+    <main id="content" class="explainer">
+      <a class="explainer-back" href="{{home}}"><span aria-hidden="true">←</span> {{language_back}}</a>
+      <h1>{{language_title}}</h1>
+      <p class="explainer-lead">{{language_intro}}</p>
+      <section aria-labelledby="markdown-title">
+        <h2 id="markdown-title">Markdown</h2>
+        <figure class="syntax-example">
+          <div class="syntax-example-grid">
+            <div class="code-window">
+              <div class="window-header">{{language_source_label}}</div>
+              <pre aria-label="Markdown · {{language_source_label}}"><code><span class="code-command">#</span> {{language_sample_heading}}
+
+{{language_sample_prefix}}<span class="code-command">**</span>{{language_sample_emphasis}}<span class="code-command">**</span>{{language_sample_suffix}}</code></pre>
+            </div>
+            <div class="syntax-preview">
+              <span class="syntax-preview-label">{{language_preview_label}}</span>
+              <p class="syntax-heading">{{language_sample_heading}}</p>
+              <p>{{language_sample_prefix}}<strong>{{language_sample_emphasis}}</strong>{{language_sample_suffix}}</p>
+            </div>
+          </div>
+          <figcaption>{{language_markdown_caption}}</figcaption>
+        </figure>
+      </section>
+      <section aria-labelledby="latex-title">
+        <h2 id="latex-title">LaTeX</h2>
+        <figure class="syntax-example">
+          <div class="syntax-example-grid">
+            <div class="code-window">
+              <div class="window-header">{{language_source_label}}</div>
+              <pre aria-label="LaTeX · {{language_source_label}}"><code><span class="code-command">\section*</span>{<span class="code-string">{{language_sample_heading}}</span>}
+
+{{language_sample_prefix}}<span class="code-command">\textbf</span>{<span class="code-string">{{language_sample_emphasis}}</span>}{{language_sample_suffix}}</code></pre>
+            </div>
+            <div class="syntax-preview">
+              <span class="syntax-preview-label">{{language_preview_label}}</span>
+              <p class="syntax-heading">{{language_sample_heading}}</p>
+              <p>{{language_sample_prefix}}<strong>{{language_sample_emphasis}}</strong>{{language_sample_suffix}}</p>
+            </div>
+          </div>
+          <figcaption>{{language_latex_caption}}</figcaption>
+        </figure>
+      </section>
+      <section aria-labelledby="structure-title">
+        <h2 id="structure-title">{{language_structure_title}}</h2>
+        <p>{{language_definition}}</p>
+        <p>{{language_structure_body}}</p>
+      </section>
+      <section aria-labelledby="example-title">
+        <h2 id="example-title">{{language_example_title}}</h2>
+        <p>{{language_example_body}}</p>
+        <figure class="code-figure">
+          <div class="code-window"><div class="window-header"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>formula.muweave</span></div><pre aria-label="{{code_label}}"><code><span class="code-command">µexec</span>(<span class="code-string">"a = 2"</span>)
+
+<span class="code-command">µm</span>{f(x) = <span class="code-command">µa</span> x^2}</code></pre><div class="code-result"><span>{{result_label}}</span><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>2</mn><mo>&#x2062;</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></math></div></div>
+          <figcaption>{{code_caption}}</figcaption>
+        </figure>
+      </section>
+      <section aria-labelledby="outputs-title">
+        <h2 id="outputs-title">{{language_outputs_title}}</h2>
+        <p>{{language_outputs_body}}</p>
+      </section>
+      <section aria-labelledby="python-title">
+        <h2 id="python-title">{{language_python_title}}</h2>
+        <p>{{language_python_body}}</p>
+      </section>
+      <nav class="explainer-links" aria-label="{{language_back}}">
+        <a class="button" href="{{example_base}}index.html?v={{version}}">{{language_try}}</a>
+        <a href="{{home}}">{{language_back}}</a>
+      </nav>
+    </main>
+    <footer class="site-footer"><p class="footer-brand"><img src="{{root}}assets/brand/muweave-symbol.svg?v={{version}}" alt="" width="26" height="26"><span>{{footer_note}}</span></p><nav aria-label="{{footer_github}}"><a href="{{home}}#license">{{footer_license}}</a><a href="{{root}}developers/index.html">{{footer_docs}}</a><a href="https://github.com/georg184/muweave">GitHub <span aria-hidden="true">↗</span></a></nav></footer>
+  </div>
+  <section class="version-error" id="version-error" role="alert" hidden><h1>{{version_title}}</h1><p>{{version_body}}</p><a class="button" href="?refresh={{version}}">{{version_reload}}</a></section>
+</body>
+</html>

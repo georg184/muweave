@@ -1,0 +1,22 @@
+muweave-suite
+Copyright (C) 2026 Georg G
+SPDX-License-Identifier: GPL-3.0-only
+
+This package is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation, version 3 of the License only.
+
+This package is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this package in LICENSE. If not, see
+<https://www.gnu.org/licenses/>.
+
+Unless an accompanying notice specifies otherwise, this grant covers the
+original source code, documentation, tests, examples and other original
+resources in this package. Third-party code, fonts and other third-party
+resources retain their own copyright holders, licenses and notices;
+this notice does not replace or relicense them.

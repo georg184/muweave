@@ -1,6 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <path d="M20 14 10 54" stroke="#08746C" stroke-width="8" stroke-linecap="round"/>
-  <path d="m20 14-5 21c-3 13 18 14 21 0l5-21" stroke="#08746C" stroke-width="8" stroke-linecap="round"/>
-  <path d="m38 26-2 10c-2 11 10 13 17 3" stroke="#F7F8F5" stroke-width="12" stroke-linecap="round"/>
+  <defs>
+    <mask id="weave-gap" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <rect width="64" height="64" fill="white"/>
+      <path d="m38 26-2 10c-2 11 10 13 17 3" stroke="black" stroke-width="12" stroke-linecap="round"/>
+    </mask>
+  </defs>
+  <g stroke="#08746C" stroke-width="8" stroke-linecap="round" mask="url(#weave-gap)">
+    <path d="M20 14 10 54"/>
+    <path d="m20 14-5 21c-3 13 18 14 21 0l5-21"/>
+  </g>
   <path d="m38 26-2 10c-2 11 10 13 17 3" stroke="#779A74" stroke-width="8" stroke-linecap="round"/>
 </svg>

@@ -1,4 +1,4 @@
-# MuWeave: Seitenkonzept, Gestaltung und Textentwurf
+# µWeave: Seitenkonzept, Gestaltung und Textentwurf
 
 Audience: Website-Verantwortliche, Redaktion und umsetzende Entwickler.
 
@@ -17,17 +17,36 @@ ist als gestalterische Richtung angenommen.
 
 ## Ziel und Begriff
 
-Eine Lehrperson soll durch Lesen des Seitenanfangs verstehen, was MuWeave
+Der öffentliche Produktname lautet **µWeave**. Das unveränderte verwobene
+µ-Zeichen bildet den ersten Buchstaben der Wortmarke; im Seitenkopf erscheint
+sie vergrössert. Auch Nennungen im Fliesstext verwenden diese Wortmarke.
+Kommandozeilenbefehle, Python-Namen und Dateiendungen behalten `muweave`.
+Der portable Befehl `µweave` erzeugt die Wortmarke für Dokumente.
+
+Eine Lehrperson soll durch Lesen des Seitenanfangs verstehen, was µWeave
 ist, was sie damit erstellen kann und weshalb Python und KI dazugehören.
 Das Design unterstützt diese Erklärung mit guter Typografie, eindeutiger
 Reihenfolge und einem anschliessenden echten Beispiel.
 
-Die passende öffentliche Bezeichnung ist **Python-basierte Dokumentensprache**.
+Der Fokus der Homepage liegt auf Worksheets. Prüfungen werden im öffentlichen
+Einführungstext nicht erwähnt; der integrierte Lerncoach gehört zum Worksheet.
+
+Die öffentliche Bezeichnung ist **Python-basierte Dokumentenbeschreibungssprache**.
 `.muweave` bezeichnet das zugehörige textuelle Quellformat. «Dokumentenformat»
 ist als erste Annäherung verständlich, erklärt aber die ausführbaren
 Ausdrücke, Funktionen und wiederverwendbaren Inhalte nicht vollständig.
 
-Auf der Webseite steht MuWeave für das Gesamtsystem zur Dokumenterstellung.
+Der Begriff ist im Einleitungstext verlinkt. Die Erklärseite beginnt in allen
+drei Sprachen mit Markdown und LaTeX: Eine Überschrift und ein fett gesetzter
+Satz stehen jeweils als Quelltext neben einer gekennzeichneten schematischen
+Darstellung. Danach folgen das gemeinsame Beschreibungsprinzip, das vorhandene
+µWeave-Formelbeispiel, die Ausgaben und die Möglichkeiten von Python. Sie setzt
+keine Programmierkenntnisse voraus und bietet einen Rückweg zur jeweiligen
+Homepage. «Dokumentenbeschreibungssprache» wird auch in deutschsprachigen
+[LaTeX-Kursunterlagen der TU Dortmund](https://hylec.tu-dortmund.de/storages/hylec/r/E1/HyLeC_LaTeX-Workshop.pdf)
+verwendet; die Wahl für diese Homepage ist eine redaktionelle Entscheidung.
+
+Auf der Webseite steht µWeave für das Gesamtsystem zur Dokumenterstellung.
 Technisch ist der gleichnamige Kern ein formatneutraler Python-Makroprozessor;
 die Suite ergänzt ihn um Unterrichtsvokabular und Ausgabewege. Diese
 Paketaufteilung gehört in den Entwicklerbereich.
@@ -56,12 +75,13 @@ Nutzen; Detailfragen der Rendering-Technik gehören in den Entwicklerbereich.
 
 | Position | Sichtbarer Inhalt | Aufgabe |
 | --- | --- | --- |
-| Seitenkopf | MuWeave mit kleinem Zeichen; rechts Sprachwahl | Produktname und Sprache sofort erkennen |
+| Seitenkopf | µWeave als grosse Wortmarke; rechts Sprachwahl | Produktname und Sprache sofort erkennen |
 | Direkt darunter | Leitsatz in wenigen gut lesbaren Zeilen | Ziel und Nutzen benennen |
-| Ohne Unterbrechung | Kurze Erklärung der Dokumentensprache und Worksheets mit Lerncoach | «Was ist das?» beantworten |
+| Ohne Unterbrechung | Kurze Erklärung der Dokumentenbeschreibungssprache und Worksheets mit Lerncoach; Begriff verlinkt | «Was ist das?» beantworten |
 | Anschliessend | Eine Quelle → PDF, interaktives HTML, KI-Kontext für den Lerncoach | Das Ausgabeprinzip sichtbar machen |
 | Nächster Abschnitt | Python als Teil des Dokuments | Mächtigkeit und KI-gestützte Erstellung erklären |
-| Direkt danach | Der integrierte Lerncoach: Kontext bei jeder Anfrage und Autoren-Pre-Prompt | Das pädagogische Kernfeature erklären |
+| Direkt danach | Empfohlene Arbeitsweise | KI-gestützten Editor und Übernahme der Detailarbeit durch KI empfehlen |
+| Anschliessend | Der integrierte Lerncoach: Kontext bei jeder Anfrage und Autoren-Pre-Prompt | Das pädagogische Kernfeature erklären |
 | Anschliessend | Mathematik auch hören | Vorlesbare Formeln mit nativem MathML konkret machen |
 | Danach | Ein Unterrichtsbeispiel mit seinen Ausgaben | Die Erklärung an echtem Material zeigen |
 | Abschluss | Ein konkreter Einstieg für Lehrpersonen | Den nächsten tatsächlich verfügbaren Schritt anbieten |
@@ -76,10 +96,10 @@ Schematischer Aufbau:
 
 ```text
 ┌───────────────────────────────────────────────────────────┐
-│  [µ-Zeichen] MuWeave                         [DE] [EN] [FR] │
+│  [verwobenes µ]Weave                       [DE] [EN] [FR] │
 │                                                           │
 │  Leitsatz                                                 │
-│  Was MuWeave ist: kurze Erklärung                         │
+│  Was µWeave ist: kurze Erklärung                         │
 │                                                           │
 │                    eine .muweave-Quelle                    │
 │                    /        |        \                    │
@@ -88,6 +108,9 @@ Schematischer Aufbau:
 ├───────────────────────────────────────────────────────────┤
 │  Python als Teil des Dokuments                            │
 │  Kurzer Text; bei Bedarf ein kleines erläuterndes Beispiel │
+├───────────────────────────────────────────────────────────┤
+│  Empfohlene Arbeitsweise                                   │
+│  KI-gestützter Editor übernimmt mühsame Detailarbeit       │
 ├───────────────────────────────────────────────────────────┤
 │  Lerncoach: Kontext bei jeder Anfrage · Autoren-Pre-Prompt │
 │  Mathematik auch hören: native MathML-Formeln               │
@@ -108,29 +131,33 @@ Animation. Der sichtbare Erklärungstext vermittelt denselben Zusammenhang.
 ## Textentwürfe in den drei Sprachen
 
 Die folgenden Texte sind redaktionelle Arbeitsfassungen für dieselben
-Abschnitte. Der Produktname bleibt überall **MuWeave**. Deutsche Texte folgen
+Abschnitte. Der Produktname bleibt überall **µWeave**. Deutsche Texte folgen
 schweizerischer Rechtschreibung. «Worksheets» bleibt im deutschen Leitsatz
 erhalten und wird im Erklärungstext als «Arbeitsblätter» verständlich gemacht.
+Die öffentlichen Seitentexte sind neutral formuliert und sprechen die
+Leserschaft weder mit «Du» noch mit «Sie» an. Das gilt auch für Beschriftungen,
+Meldungen und die auf der Homepage gezeigten Beispielgespräche. Der persönliche
+Anredestil eines veröffentlichten Worksheets ist eine eigene Autorenwahl.
 
 ### Deutsch
 
 **Leitsatz**
 
-> KI-gestützte Erstellung interaktiver, barrierefreier Worksheets und
-> Prüfungen – mit einheitlicher Gestaltung und nativ integriertem
+> KI-gestützte Erstellung interaktiver, barrierefreier Worksheets
+> – mit einheitlicher Gestaltung und nativ integriertem
 > KI-Lerncoach.
 
-**Was ist MuWeave?**
+**Was ist µWeave?**
 
-MuWeave ist eine Python-basierte Dokumentensprache für Unterrichtsmaterialien.
-In einer `.muweave`-Datei beschreibst du Texte, Formeln, Aufgaben, Lösungen
-und interaktive Elemente. Daraus entstehen druckfertige PDFs, interaktive
+µWeave ist eine Python-basierte Dokumentenbeschreibungssprache für Worksheets.
+Eine `.muweave`-Datei beschreibt Texte, Formeln, Aufgaben, Lösungen und
+interaktive Elemente. Daraus entstehen druckfertige PDFs, interaktive
 Arbeitsblätter mit integriertem KI-Lerncoach und strukturierte Inhalte für
-KI-Modelle. Du pflegst eine gemeinsame Quelle für diese Ausgaben.
+KI-Modelle. Alle Ausgaben beruhen auf einer gemeinsamen Quelle.
 
 **Eine Quelle. Mehrere Ausgaben.**
 
-Die Druckfassung eignet sich für Papier und Prüfungen. Im Browser können
+Die Druckfassung liefert Arbeitsblätter auf Papier. Im Browser können
 Lernende interaktive Elemente bedienen und vorgesehene Antwortfelder nutzen.
 Der Lerncoach unterstützt sie dabei direkt im Worksheet. Die KI-Fassung
 liefert ihm den fachlichen Inhalt und seine Zusammenhänge bei jeder Anfrage.
@@ -139,16 +166,21 @@ gemeinsamen Gestaltung.
 
 **Python als Teil des Dokuments**
 
-Python steht direkt im MuWeave-Quelltext zur Verfügung. Damit lassen sich
-Werte berechnen, Aufgaben variieren und Inhalte wiederverwenden. Auch
-interaktive Darstellungen können so beschrieben werden. Diese
-Ausdrucksmöglichkeiten machen MuWeave zu einem Werkzeug für anspruchsvolles
-Unterrichtsmaterial. KI-Modelle können beim Schreiben und Anpassen ihre
-Fähigkeiten zur Python-Programmierung einsetzen.
+µWeave zielt auf maximale Produktivität, Flexibilität und Ausdrucksstärke
+sowie eine einheitliche Darstellung. Statt eine eigene Sprache zu entwickeln,
+setzt µWeave daher auf die weitverbreitete Programmiersprache Python. Viele
+KI-Modelle sind umfassend mit Python-Code trainiert und können ihre
+Programmierfähigkeiten hier voll für die Dokumenterstellung einsetzen.
 
-Von Hand ist MuWeave anders zu lesen als LaTeX, aber nicht grundsätzlich
-schwieriger. Markdown bleibt für einfache Texte unmittelbarer. Im Zentrum
-von MuWeave steht die Ausdruckskraft für Inhalt, Berechnung und Interaktion.
+Grundprinzip: Im µWeave-Quelltext können beliebige Python-Ausdrücke stehen.
+Ein vorangestelltes µ macht sie für den Parser erkennbar. µWeave wertet die
+Ausdrücke aus und ersetzt sie im fertigen Dokument durch ihr Ergebnis.
+
+**Empfohlene Arbeitsweise**
+
+Für das Erstellen und Überarbeiten von µWeave-Dokumenten empfiehlt sich ein
+KI-gestützter Editor. Die KI übernimmt die mühsame Detailarbeit am Quelltext,
+sodass mehr Zeit für die Inhalte und ihre didaktische Gestaltung bleibt.
 
 **Ein Lerncoach, der das Unterrichtsmaterial kennt**
 
@@ -157,14 +189,13 @@ erhält er die wesentlichen fachlichen Inhalte in einer für KI aufbereiteten
 Form: Aufgaben, Formeln, Begriffe und ihre Zusammenhänge. So kann er seine
 Hilfestellung auf das Unterrichtsmaterial beziehen.
 
-Als Autor legst du in vorbereitenden Anweisungen, dem Pre-Prompt, fest, wie
-der Coach unterstützen soll. Dazu gehören etwa das sprachliche Niveau,
+Vorbereitende Anweisungen der Autorinnen und Autoren, der Pre-Prompt, legen
+fest, wie der Coach unterstützen soll. Dazu gehören etwa das sprachliche Niveau,
 die Art der Hinweise und der Umgang mit Lösungen. Diese Vorgaben werden
-bei jeder Anfrage ebenfalls mitgegeben. Du kannst beispielsweise vorgeben:
+bei jeder Anfrage ebenfalls mitgegeben. Ein Beispiel:
 
-> Gib zunächst einen Hinweis und verwende die Begriffe des Worksheets.
-> Frage nach dem bisherigen Ansatz, bevor du den nächsten Lösungsschritt
-> erläuterst.
+> Zunächst einen Hinweis geben und die Begriffe des Worksheets verwenden.
+> Vor dem nächsten Lösungsschritt nach dem bisherigen Ansatz fragen.
 
 **Mathematik auch hören**
 
@@ -177,20 +208,20 @@ Vorlesefunktion zugänglich.
 
 **Tagline**
 
-> AI-assisted creation of interactive, accessible worksheets and exams –
+> AI-assisted creation of interactive, accessible worksheets –
 > with a consistent look and feel and a natively integrated AI learning coach.
 
-**What is MuWeave?**
+**What is µWeave?**
 
-MuWeave is a Python-based document language for teaching materials. In a
-`.muweave` file, you describe text, formulas, tasks, solutions and interactive
+µWeave is a Python-based document description language for worksheets. A
+`.muweave` file describes text, formulas, tasks, solutions and interactive
 elements. The same source produces print-ready PDFs, interactive worksheets
 with an integrated AI learning coach and structured content for AI models.
-You maintain one common source for these outputs.
+All outputs share one source.
 
 **One source. Multiple outputs.**
 
-The print version is designed for paper and exams. In the browser, learners
+The print version provides worksheets on paper. In the browser, learners
 can use interactive elements and designated answer fields, with help from
 the learning coach directly in the worksheet. The AI version supplies the
 subject matter and its relationships to the coach with every prompt. Each
@@ -198,15 +229,21 @@ output uses the possibilities of its medium and follows a shared visual design.
 
 **Python as part of the document**
 
-Python is available directly in MuWeave source. It lets you calculate values,
-create variations of tasks and reuse content. It can also describe interactive
-visualisations. This expressive power makes MuWeave a tool for demanding
-teaching materials. AI models can use their Python programming capabilities
-to help write and adapt those materials.
+µWeave aims for maximum productivity, flexibility and expressive power,
+together with a consistent presentation. µWeave therefore builds on the
+widely used programming language Python instead of developing a language of
+its own. Many AI models have extensive training on Python code and can put
+their programming capabilities to full use in creating documents.
 
-Reading MuWeave source differs from reading LaTeX, but is not inherently
-harder. Markdown remains more immediate for simple text. MuWeave focuses on
-the expressive power needed for content, computation and interaction.
+Core principle: Arbitrary Python expressions can appear in µWeave source. A
+preceding µ makes them recognisable to the parser. µWeave evaluates the
+expressions and replaces them with their results in the finished document.
+
+**Recommended workflow**
+
+An AI-assisted editor is recommended for creating and revising µWeave
+documents. AI handles the tedious details of the source code, leaving more
+time for the content and teaching approach.
 
 **A learning coach that knows the teaching material**
 
@@ -215,13 +252,14 @@ prompt, it receives the essential subject content in a form prepared for AI:
 tasks, formulas, concepts and their relationships. This lets it relate its
 guidance to the teaching material.
 
-As the author, you define preliminary instructions, or a pre-prompt, to guide
-how the coach helps. These can cover language level, the kinds of hints it
+Preliminary instructions from the authors, or a pre-prompt, guide how the
+coach helps. These can cover language level, the kinds of hints it
 provides and how it handles solutions. Those instructions accompany every
-prompt as well. For example, you can specify:
+prompt as well. For example:
 
-> Start with a hint and use the worksheet's terminology. Ask about the
-> learner's approach before explaining the next step towards the solution.
+> The first response should offer a hint using the worksheet's terminology.
+> The learner's approach should be explored before the next step towards the
+> solution is explained.
 
 **Hear the mathematics, too**
 
@@ -233,23 +271,22 @@ roots, indices and other mathematical structures for spoken presentation.
 
 **Phrase directrice**
 
-> Création assistée par l'IA de fiches de travail et d'épreuves interactives
+> Création assistée par l'IA de fiches de travail interactives
 > et accessibles, avec une présentation cohérente et un coach pédagogique IA
 > intégré nativement.
 
-**Qu'est-ce que MuWeave ?**
+**Qu'est-ce que µWeave ?**
 
-MuWeave est un langage de documents fondé sur Python, destiné aux supports
-pédagogiques. Dans un fichier `.muweave`, vous décrivez les textes, les
-formules, les exercices, les solutions et les éléments interactifs. Cette
+µWeave est un langage de description de documents fondé sur Python, destiné
+aux fiches de travail. Un fichier `.muweave` décrit les textes, les formules,
+les exercices, les solutions et les éléments interactifs. Cette
 même source produit des PDF prêts à imprimer, des fiches interactives pour
 le navigateur avec un coach pédagogique IA intégré et des contenus structurés
-pour les modèles d'IA. Vous maintenez une source commune pour ces différentes
-sorties.
+pour les modèles d'IA. Toutes les sorties reposent sur une source commune.
 
 **Une source. Plusieurs formats de sortie.**
 
-La version imprimée est conçue pour le papier et les épreuves. Dans le
+La version imprimée fournit des fiches de travail sur papier. Dans le
 navigateur, les élèves peuvent manipuler les éléments interactifs et utiliser
 les espaces de réponse prévus, avec l'aide du coach directement dans la
 fiche. La version destinée à l'IA lui fournit le contenu disciplinaire et
@@ -258,17 +295,23 @@ de son support et suit une présentation commune.
 
 **Python au cœur du document**
 
-Python est directement disponible dans le texte source MuWeave. Il permet
-de calculer des valeurs, de créer des variantes d'exercices et de réutiliser
-des contenus. Il permet aussi de décrire des représentations interactives.
-Cette richesse d'expression fait de MuWeave un outil pour des supports
-pédagogiques élaborés. Les modèles d'IA peuvent mobiliser leurs capacités
-de programmation en Python pour aider à rédiger et à adapter ces supports.
+µWeave vise une productivité, une flexibilité et une richesse d’expression
+maximales, ainsi qu’une présentation uniforme. µWeave s’appuie donc sur
+Python, un langage de programmation largement utilisé, plutôt que de
+développer un langage spécifique. De nombreux modèles d’IA ont été largement
+entraînés sur du code Python et peuvent ainsi mettre pleinement leurs
+capacités de programmation au service de la création de documents.
 
-La lecture du texte source MuWeave diffère de celle de LaTeX, sans être
-fondamentalement plus difficile. Markdown reste plus immédiat pour les textes
-simples. MuWeave privilégie la richesse d'expression nécessaire au contenu,
-au calcul et à l'interactivité.
+Principe de base : le texte source µWeave peut contenir des expressions
+Python quelconques. Un µ placé devant chaque expression permet à l’analyseur
+syntaxique de la reconnaître. µWeave évalue ces expressions et les remplace
+par leur résultat dans le document final.
+
+**Méthode de travail recommandée**
+
+Un éditeur assisté par l’IA est recommandé pour créer et remanier des
+documents µWeave. L’IA prend en charge les détails fastidieux du code source,
+ce qui laisse plus de temps pour le contenu et les choix pédagogiques.
 
 **Un coach qui connaît le support pédagogique**
 
@@ -277,13 +320,13 @@ Le coach pédagogique IA accompagne les élèves directement dans la fiche.
 une forme adaptée à l'IA : exercices, formules, notions et relations entre
 ces éléments. Il peut ainsi relier son aide au support pédagogique.
 
-En tant qu'auteur, vous définissez des consignes préalables, ou pré-prompt,
-qui orientent son accompagnement : niveau de langue, nature des indices
+Les consignes préalables des auteurs, ou pré-prompt, orientent
+l'accompagnement : niveau de langue, nature des indices
 et manière d'aborder les solutions, par exemple. Ces consignes sont elles
-aussi transmises à chaque demande. Vous pouvez notamment préciser :
+aussi transmises à chaque demande. Un exemple :
 
-> Commence par un indice et utilise les termes de la fiche. Demande à
-> l'élève quelle démarche il a suivie avant d'expliquer l'étape suivante.
+> Commencer par un indice et reprendre le vocabulaire de la fiche. Demander
+> quelle démarche a été essayée avant d'expliquer l'étape suivante.
 
 **Écouter aussi les mathématiques**
 
@@ -295,10 +338,23 @@ mathématiques pour la lecture vocale.
 ## Visuelle Richtung
 
 Die Seite soll an eine sorgfältig gestaltete Publikation erinnern: hell,
-ruhig und präzise. Ein warmer fast weisser Hintergrund (`#F7F8F5`), dunkle
-Schrift (`#173038`) und ein gedämpfter Petrolton (`#086F6B`) bilden den
-Ausgangspunkt. Weisse Beispieloberflächen und feine Trennlinien strukturieren
+ruhig und präzise. Ein helles, stark mit Weiss aufgehelltes Salbeigrün
+(`#EDF4EE`) greift die Grüntöne des Logos im Hintergrund auf. Dunkle Schrift
+(`#173038`) und ein gedämpfter Petrolton (`#086F6B`) bilden den
+visuellen Rahmen. Weisse Beispieloberflächen und feine Trennlinien strukturieren
 die längere Seite. Die endgültigen Farbpaarungen werden auf Kontrast geprüft.
+
+Die Ausgabeübersicht zeigt die `.muweave`-Quelldatei links und drei gleichwertige
+Ausgaben rechts: PDF, interaktives Worksheet und für KI-Agenten optimierten
+Inhalt. Jede Karte nennt einen beispielhaften Dateinamen: `dokument.muweave`,
+`dokument.pdf`, `dokument.html` und `dokument.md`. Drei eigenständige Pfeile
+führen direkt vom Quellblock zu den Ausgaben. Die Quelle erhält eine
+petrolfarbene Karte, die Ausgaben weisse Karten mit grünen Symbolen. Ihre
+Breite richtet sich jeweils nach dem Inhalt; die linken Kanten bleiben bündig.
+Auf schmalen Bildschirmen steht die Quelle oben; die Pfeile verlaufen getrennt
+zu den drei eingerückten Ausgaben. Die Beschriftung «Quelldatei» unterscheidet
+die Quelle vom erzeugten Unterrichtsmaterial. Die Einführung erklärt, dass
+eine `.muweave`-Datei eine gewöhnliche Textdatei ist.
 
 Eine gut lesbare Sans-Serif-Schrift aus einem lokalen Systemfont-Stack hält
 den Einstieg schnell und unabhängig von externen Schriftanbietern. Der Titel
@@ -376,7 +432,7 @@ keine drei unabhängig gepflegten Seitenlayouts.
 
 Gewählt ist ein vereinfachtes **µ aus zwei ineinandergreifenden
 Bändern**. Der Bezug auf «Weave» bleibt im Zeichen selbst sichtbar. Die
-Wortmarke daneben lautet MuWeave. Das reine Zeichen soll ohne Wortmarke als
+Wortmarke daneben lautet µWeave. Das reine Zeichen soll ohne Wortmarke als
 Favicon funktionieren und auch einfarbig erkennbar bleiben.
 
 Der Entwurf beginnt als SVG. Die Form wird zuerst bei 16 px und 32 px
@@ -397,17 +453,19 @@ Das ist eine spätere, eigene PyHTML-Änderung mit Paketprüfung und Versionieru
 
 ### KI-gestützte Erstellung und Python
 
-Die direkte Verwendung von Python ist im MuWeave-Kern dokumentiert. Der
+Die direkte Verwendung von Python ist im µWeave-Kern dokumentiert. Der
 Autorenleitfaden beschreibt den Arbeitsablauf für KI-Agenten. Das erlaubt
 die konkrete Aussage, dass KI-Modelle ihre Python-Fähigkeiten beim Erstellen
-von MuWeave-Quellen nutzen können.
+von µWeave-Quellen nutzen können.
 
 Die Forschung [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374)
 belegt Python-Codegenerierung an konkreten Modellen und Aufgaben. Daraus
 folgt keine pauschale Rangfolge zwischen allen Sprachen und Modellen. Der
-Textentwurf formuliert deshalb die nutzbare Verbindung zu Python. Der
-Lesbarkeitsvergleich mit LaTeX und Markdown ist eine redaktionelle Einordnung,
-keine gemessene Eigenschaft.
+Textentwurf formuliert deshalb die nutzbare Verbindung zu Python. Die
+Gewichtung von Produktivität, Flexibilität, Ausdrucksstärke und einheitlicher
+Darstellung gegenüber der unmittelbaren Lesbarkeit des Quelltexts beschreibt
+die redaktionelle Ausrichtung von µWeave. Die Python-Erklärung führt direkt zum gemeinsamen Beispiel mit
+seinen drei Expansionen; gesonderte Lesbarkeitsvergleiche entfallen.
 
 ### Integrierter Lerncoach und AI-Backend
 
@@ -417,7 +475,7 @@ KI-gerechter Form und die vorbereitenden Autorenanweisungen mit. Der
 Pre-Prompt steuert unter anderem Hilfestrategie, Sprache, Anspruchsniveau
 und Umgang mit Lösungen. Er ist ein bewusst verfasster Teil der pädagogischen
 Vorgaben. Die genaue Autoren-API wird bei der Produktimplementierung festgelegt;
-der Webseitenentwurf erfindet dafür keine MuWeave-Kommandos.
+der Webseitenentwurf erfindet dafür keine µWeave-Kommandos.
 
 Das beabsichtigte Prinzip für jede Anfrage:
 

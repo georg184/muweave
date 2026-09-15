@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "source": "µweave",
+  "muweave_version": "20260913.202551",
+  "muvocab_version": "20260913.204625",
+  "html": "<span class=\"muweave-wordmark\" style=\"white-space:nowrap\"><span style=\"position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap\">µ</span><img class=\"muweave-wordmark-symbol\" alt=\"\" aria-hidden=\"true\" width=\"64\" height=\"64\" style=\"display:inline-block;width:1.6ex;height:1.6ex;max-width:none;vertical-align:-.4ex;margin-right:-.25ex\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPGRlZnM+CiAgICA8bWFzayBpZD0id2VhdmUtZ2FwIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiPgogICAgICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IndoaXRlIi8+CiAgICAgIDxwYXRoIGQ9Im0zOCAyNi0yIDEwYy0yIDExIDEwIDEzIDE3IDMiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPC9tYXNrPgogIDwvZGVmcz4KICA8ZyBzdHJva2U9IiMwODc0NkMiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBtYXNrPSJ1cmwoI3dlYXZlLWdhcCkiPgogICAgPHBhdGggZD0iTTIwIDE0IDEwIDU0Ii8+CiAgICA8cGF0aCBkPSJtMjAgMTQtNSAyMWMtMyAxMyAxOCAxNCAyMSAwbDUtMjEiLz4KICA8L2c+CiAgPHBhdGggZD0ibTM4IDI2LTIgMTBjLTIgMTEgMTAgMTMgMTcgMyIgc3Ryb2tlPSIjNzc5QTc0IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K\">Weave</span>",
+  "text": "µWeave",
+  "svg_sha256": "e44a90599a397571c962c67f7753f93d7ace595d02a3181f2128e424a501766f"
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "origin": {
+    "item": 116,
+    "sha256": "b3cd62ff0895e92d15a293fb2589720e50c8b8c0cec6626bddf02a1507207bd5",
+    "excerpt_sha256": "264d3ef7024f45bc910ed6b10dc83bc70b2e21d2bfe70592e45c6a3f9cf10e77"
+  },
+  "generator_sha256": "144bb303b291cac15c5ad0db216845eead9d6ecdd97f239c102ecaf9f3d6ee04",
+  "components": {
+    "muweave": "20260914.013929",
+    "muvocab": "20260914.151609",
+    "pyhtml": "20260914.145342"
+  },
+  "settings": {
+    "publish": true,
+    "embed_ai": false,
+    "coach": false,
+    "html_math_renderer": "typst-mathml",
+    "body_width_ratio": 1,
+    "body_height_ratio": 1
+  },
+  "editions": {
+    "de": {
+      "source": "116.muweave",
+      "source_sha256": "c096d385dcf6ff94ec7e58fa37f1d44b1098417e01ba9d3e23613a60fdc75090",
+      "html_sha256": "e7e4f0cd7a580017dbd02c29cc69e2dd529350b2318aaca6a8dd66971b6ea2a9"
+    },
+    "en": {
+      "source": "116-en.muweave",
+      "source_sha256": "c8b484e8a54492e649fc918dd19b12be4da4cb26b6235a3b1f6fce64265cc1f8",
+      "html_sha256": "3834775d2a3bb372019abd2778235c412a787b9a0e09171ad5f3bab48799d4e8"
+    },
+    "fr": {
+      "source": "116-fr.muweave",
+      "source_sha256": "c8c77f0bcf898234bc400bb25bfd942217e1cef627574c9b9680c67422751e88",
+      "html_sha256": "7043444dbcbdbcdc465a16a72415c0a4009be116a2dd097b687e086a6ca91db4"
+    }
+  }
+}

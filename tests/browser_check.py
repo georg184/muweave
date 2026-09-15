@@ -12,6 +12,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+from browser_applet_check import check_applet
+from browser_speech_check import check_speech
 from playwright.sync_api import sync_playwright
 
 ROOT: Path = Path(__file__).resolve().parents[1]
@@ -50,6 +52,7 @@ def check(axe_path: Path | None = None) -> None:
             page = context.new_page()
             errors: list[str] = []
             accessibility: dict[str, object] = {}
+            applet_results: dict[str, object] = {}
             page.on("pageerror", lambda error: errors.append(str(error)))
             for language, suffix in (
                 ("de", "/?lang=de"),
@@ -65,13 +68,38 @@ def check(axe_path: Path | None = None) -> None:
                     == language
                 )
                 assert page.locator(".version-error").is_hidden()
-                assert page.locator("main math").count() == 2
-                assert (
-                    page.locator(".code-window pre").inner_text().strip()
-                    == (ROOT / "examples/formula.muweave")
-                    .read_text(encoding="utf-8")
-                    .strip()
+                assert page.locator(".brand h1").text_content() == "µWeave (MuWeave)"
+                assert page.locator(".brand .muweave-wordmark").count() == 1
+                badge = page.locator(".license-badge")
+                assert badge.is_visible()
+                assert "GPLv3" in badge.inner_text()
+                assert badge.bounding_box()["y"] < page.viewport_size["height"]
+                badge.click()
+                assert page.locator("#license").is_visible()
+                assert page.url.endswith("#license")
+                page.evaluate("window.scrollTo(0, 0)")
+                assert "MuWeave" not in page.locator("main").text_content()
+                assert page.locator(".muweave-wordmark-symbol").evaluate_all(
+                    "images => images.every(image => image.complete && image.naturalWidth > 0)"
                 )
+                assert page.locator("main math").count() == 1
+                bold = json.loads(
+                    (ROOT / "resources/bold.json").read_text(encoding="utf-8")
+                )
+                assert (
+                    page.locator(".bold-definition").inner_text()
+                    == bold["library_excerpt"]
+                )
+                assert (
+                    page.locator(".bold-call").inner_text()
+                    == bold["editions"][language]["source"]
+                )
+                for backend, output in bold["editions"][language]["outputs"].items():
+                    assert (
+                        page.locator(f'[data-backend="{backend}"] pre').inner_text()
+                        == output
+                    )
+                assert page.locator(".backend-output pre strong").count() == 0
                 assert (
                     page.locator(
                         'main script[src*="mathjax"], main script[src*="katex"]'
@@ -89,6 +117,7 @@ def check(axe_path: Path | None = None) -> None:
                     )
                     target = site / unquote(resolved.path).lstrip("/")
                     assert target.exists(), f"Broken local resource: {href}"
+                applet_results[language] = check_applet(page, ROOT, language)
                 page.screenshot(
                     path=str(screenshots / f"{language}-desktop.png"), full_page=True
                 )
@@ -120,20 +149,140 @@ def check(axe_path: Path | None = None) -> None:
                         report["violations"], ensure_ascii=False
                     )
 
+            # The definition link opens a complete, usable explanation in each edition.
+            for language, suffix in (
+                ("de", "/?lang=de"),
+                ("en", "/en/"),
+                ("fr", "/fr/"),
+            ):
+                page.goto(base + suffix)
+                page.locator(".definition a").focus()
+                page.keyboard.press("Enter")
+                page.wait_for_url("**/document-language/*")
+                assert page.locator("html").get_attribute("data-language") == language
+                assert page.locator(".version-error").is_hidden()
+                assert page.locator("main h1").count() == 1
+                assert (
+                    page.locator(".code-figure pre").inner_text().strip()
+                    == (ROOT / "examples/formula.muweave")
+                    .read_text(encoding="utf-8")
+                    .strip()
+                )
+                for href in page.locator("[href], [src]").evaluate_all(
+                    "elements => elements.map(e => e.getAttribute('href') || e.getAttribute('src'))"
+                ):
+                    address = urlsplit(href)
+                    if address.scheme or not address.path:
+                        continue
+                    resolved = urlsplit(
+                        page.evaluate("href => new URL(href, location.href).href", href)
+                    )
+                    target = site / unquote(resolved.path).lstrip("/")
+                    assert target.exists(), f"Broken explanation resource: {href}"
+                page.screenshot(
+                    path=str(screenshots / f"{language}-explanation-desktop.png"),
+                    full_page=True,
+                )
+                for width in (320, 390, 768):
+                    page.set_viewport_size({"width": width, "height": 844})
+                    assert page.evaluate(
+                        "document.documentElement.scrollWidth <= innerWidth"
+                    ), f"Explanation overflow: {language}/{width}"
+                    if width == 390:
+                        page.screenshot(
+                            path=str(
+                                screenshots / f"{language}-explanation-mobile.png"
+                            ),
+                            full_page=True,
+                        )
+                page.set_viewport_size({"width": 1440, "height": 1100})
+                if axe_path is not None:
+                    page.add_script_tag(path=str(axe_path))
+                    report = page.evaluate(
+                        "async () => await axe.run(document, {runOnly: {type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa', 'best-practice']}})"
+                    )
+                    accessibility[f"{language}-explanation"] = {
+                        "violations": report["violations"],
+                        "passes": len(report["passes"]),
+                        "incomplete": [item["id"] for item in report["incomplete"]],
+                    }
+                    assert not report["violations"], json.dumps(
+                        report["violations"], ensure_ascii=False
+                    )
+                page.locator(".explainer-back").click()
+                page.wait_for_url(base + suffix)
+
+            # Language changes keep the explanation page, also across history.
+            page.goto(base + "/document-language/?lang=de")
+            page.get_by_role("button", name="English", exact=True).click()
+            page.wait_for_url("**/en/document-language/")
+            page.get_by_role("button", name="Français", exact=True).click()
+            page.wait_for_url("**/fr/document-language/")
+            page.reload()
+            assert page.locator("html").get_attribute("data-language") == "fr"
+            page.go_back()
+            assert page.locator("html").get_attribute("data-language") == "en"
+            page.go_forward()
+            page.locator(".explainer-back").click()
+            page.wait_for_url("**/fr/")
+
+            # A visited anchor must not scroll a flag switch back to that section.
+            scroll_results: list[dict[str, object]] = []
+            for width in (390, 1440):
+                page.set_viewport_size({"width": width, "height": 844})
+                page.goto(base + "/?lang=de#license")
+                assert page.evaluate("window.scrollY") > 0
+                page.evaluate("window.scrollTo(0, 0)")
+                page.get_by_role("button", name="English", exact=True).click()
+                page.wait_for_url(base + "/en/")
+                page.wait_for_function("window.scrollY === 0")
+
+                # Trigger the same flag handler without the test tool scrolling
+                # an offscreen header into view before activation.
+                page.evaluate("window.scrollTo(0, 640)")
+                page.get_by_role("button", name="Français", exact=True).evaluate(
+                    "button => button.click()"
+                )
+                page.wait_for_url(base + "/fr/")
+                page.wait_for_function("Math.abs(window.scrollY - 640) <= 1")
+                page.evaluate("window.scrollTo(0, 880)")
+                page.reload()
+                page.wait_for_function("Math.abs(window.scrollY - 880) <= 1")
+                page.go_back()
+                page.wait_for_url(base + "/en/")
+                page.wait_for_function("Math.abs(window.scrollY - 640) <= 1")
+                page.go_forward()
+                page.wait_for_url(base + "/fr/")
+                page.wait_for_function("Math.abs(window.scrollY - 880) <= 1")
+                page.get_by_role("button", name="Deutsch", exact=True).evaluate(
+                    "button => button.click()"
+                )
+                page.wait_for_url(base + "/?lang=de")
+                page.wait_for_function("Math.abs(window.scrollY - 880) <= 1")
+                scroll_results.append(
+                    {"width": width, "top": 0, "middle": 640, "reload_and_history": 880}
+                )
+            page.set_viewport_size({"width": 1440, "height": 1100})
+
             # URL, session preference and browser history agree after switching.
             page.goto(base + "/?lang=de#coach")
+            page.evaluate("window.scrollTo(0, 0)")
             page.get_by_role("button", name="English", exact=True).click()
-            page.wait_for_url("**/en/#coach")
+            page.wait_for_url(base + "/en/")
+            page.wait_for_function("window.scrollY === 0")
             page.reload()
             assert page.locator("html").get_attribute("lang") == "en"
             page.get_by_role("button", name="Français", exact=True).click()
-            page.wait_for_url("**/fr/#coach")
+            page.wait_for_url(base + "/fr/")
             page.go_back()
             assert page.locator("html").get_attribute("data-language") == "en"
             page.go_forward()
             assert page.locator("html").get_attribute("data-language") == "fr"
             page.goto(base + "/")
             page.wait_for_url("**/fr/")
+            page.goto(base + "/#coach")
+            page.wait_for_url(base + "/fr/#coach")
+            assert page.evaluate("window.scrollY") > 0
             page.goto(base + "/?lang=de")
             assert page.locator("html").get_attribute("data-language") == "de"
             page.keyboard.press("Tab")
@@ -182,9 +331,11 @@ def check(axe_path: Path | None = None) -> None:
                 "Object.defineProperty(window, 'sessionStorage', {get() {throw new Error('Storage unavailable')}})"
             )
             page = restricted.new_page()
-            page.goto(base + "/")
+            page.goto(base + "/?lang=de#license")
+            page.evaluate("window.scrollTo(0, 0)")
             page.get_by_role("button", name="Français", exact=True).click()
             page.wait_for_url("**/fr/")
+            page.wait_for_function("window.scrollY === 0")
             restricted.close()
 
             # Static language links and all product copy work without JavaScript.
@@ -194,9 +345,21 @@ def check(axe_path: Path | None = None) -> None:
             assert page.get_by_role("link", name="English", exact=True).is_visible()
             page.get_by_role("link", name="English", exact=True).click()
             assert page.locator("html").get_attribute("lang") == "en"
+            assert page.locator("#math-speak").is_hidden()
+            assert page.locator("#math-spoken").is_visible()
+            assert page.locator(".math-surface noscript").is_visible()
             assert page.get_by_text(
                 "A learning coach that knows the teaching material", exact=True
             ).is_visible()
+            page.locator(".definition a").click()
+            assert page.locator("main h1").inner_text() == (
+                "What is a document description language?"
+            )
+            page.get_by_role("link", name="Français", exact=True).click()
+            assert urlsplit(page.url).path == "/fr/document-language/"
+            assert page.locator("html").get_attribute("lang") == "fr"
+            page.locator(".explainer-back").click()
+            assert urlsplit(page.url).path == "/fr/"
             offline.close()
 
             # Mixed cached versions fail visibly before the controller runs.
@@ -210,17 +373,21 @@ def check(axe_path: Path | None = None) -> None:
             )
             page.goto(base + "/en/")
             assert page.get_by_role(
-                "heading", name="Please reload the page."
+                "heading", name="Page reload required."
             ).is_visible()
             assert page.locator(".site-shell").is_hidden()
             mismatch.close()
+            speech_results = check_speech(browser, base, ROOT)
             browser.close()
         (screenshots / "checks.json").write_text(
             json.dumps(
                 {
                     "languages": ["de", "en", "fr"],
                     "viewports": [320, 390, 768, 1440],
+                    "language_scroll": scroll_results,
                     "worksheet": worksheet_results,
+                    "applet_116": applet_results,
+                    "mathematical_speech": speech_results,
                     "javascript_errors": errors,
                     "axe": accessibility,
                 },

@@ -1,0 +1,6 @@
+µexec("""
+a = 6
+b = 4
+values = [3, 5, 4]
+result = a * b + sum(values)
+""")

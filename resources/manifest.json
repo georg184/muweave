@@ -40,8 +40,8 @@
     }
   },
   "files": {
-    "developers-sources.json": "6daae8d0fb4dbe99ccdb690ef5cd7e0f26babd06ac089337356b7f2e857e78a1",
-    "developers.zip": "3891daac27442c4be2a98a66ef6f2a5580aa5d4a50cbfae1b17d2129862ca2f5",
+    "developers-sources.json": "f6b696b02403773cd42eae72441c0d27573decd173154e53fb76055d87db1db7",
+    "developers.zip": "f9509decdcb5507f56d86cbd54ff40177a298ccff0c6bf21d2d2d5480fcab891",
     "examples/de/ai/document.json": "6ee559c6fc5063fc7fcc3e01e217caa6342fb8bbf3c35eb9c6e48b79bcca9cf3",
     "examples/de/ai/document.md": "5b0b416eb2623facb385ec7375b8ff046481bffd9b72ad830b27b470615c45e6",
     "examples/de/ai/manifest.json": "5f0a758f076d20b3612f5effc58d77fe702eedded923354d84221c6232df276c",
@@ -60,6 +60,8 @@
     "examples/fr/ai/provenance.json": "92d41282183728e284786d400c20478bbbb079cbf7343414858211c48a7751d5",
     "examples/fr/index.html": "20f8aed3a9249c7c1229427912809134b7d5e4d884b80fceaf1baf1f1575347e",
     "examples/fr/worksheet.pdf": "1721d63015a1efb9ca98beca3f1a4edfd74418d9748b972acfbef8d4509e3cca",
-    "formula.html": "d6ef8b2fd02d36cf11e204a3d31aedb0aab5d8ecd59617666f40a601f24abc0c"
+    "formula.html": "d6ef8b2fd02d36cf11e204a3d31aedb0aab5d8ecd59617666f40a601f24abc0c",
+    "bold.json": "98d60d703fe92e8f9e6563604ddc3d9dc67fe29dcb0e06237b908e66c6f9ec1d",
+    "brand.json": "affdca1866b5ed10226c23556187b75349bc16950af09b02426138a482abe783"
   }
 }
